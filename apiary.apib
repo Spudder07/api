@@ -137,7 +137,8 @@ and will filter the results. Authentication required.
                 "stats": {},
                 "asset_type": "rig",
                 "parent_asset_id": 1232,
-                "last_active_at": "2017-01-01T00:00:00"
+                "last_active_at": "2017-01-01T00:00:00",
+                "status": "active",
                 "created_at": "2017-01-01T00:00:00"
             },
             {
@@ -150,7 +151,8 @@ and will filter the results. Authentication required.
 Creates an asset record. Authentication required.
 
 + name (string) - The asset name
-+ type (string) - The type of rig. [`rig`|`well`|`program`]
++ type (string) - The type of rig. [rig|well|program]
++ status (string) - asset status [unknown|idle|active|paused|complete]
 + stats (JSON) - stats
 + parent_asset_id (integer) - ID of the assets parent 
 + last_active_at (datetime) - datetime that the asset was last active
@@ -179,7 +181,8 @@ Creates an asset record. Authentication required.
                     "stats": {},
                     "asset_type": "rig",
                     "parent_asset_id": null,
-                    "last_active_at": "2017-01-01T00:00:00"
+                    "last_active_at": "2017-01-01T00:00:00",
+                    "status": "active",
                     "created_at": "2017-01-01T00:00:00"
                 }
                 
@@ -199,9 +202,43 @@ Creates an asset record. Authentication required.
                     "stats": {},
                     "asset_type": "rig",
                     "parent_asset_id": null,
-                    "last_active_at": "2017-01-01T00:00:00"
+                    "last_active_at": "2017-01-01T00:00:00",
+                    "status": "active",
                     "created_at": "2017-01-01T00:00:00"
                 }
+                
+### Update an Asset [PUT]
+
++ name (string) - The asset name
++ type (string) - The type of rig. [rig|well|program]
++ status (string) - asset status [unknown|idle|active|paused|complete]
++ stats (JSON) - stats
++ parent_asset_id (integer) - ID of the assets parent 
++ last_active_at (datetime) - datetime that the asset was last active
+
+
++ Request (application/json)
+
+            {
+                "asset": {
+                    "name": "Rig 1",
+                    "type": "rig"
+                }
+            }
+
++ Response 200 (application/json)
+
+                {
+                    "id": 2,
+                    "name": "Rig #1",
+                    "type": "rig",
+                    "stats": {},
+                    "asset_type": "rig",
+                    "parent_asset_id": null,
+                    "last_active_at": "2017-01-01T00:00:00",
+                    "status": "active",
+                    "created_at": "2017-01-01T00:00:00"
+                }                
             
 ### Delete [DELETE]
 
