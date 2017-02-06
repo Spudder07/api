@@ -6,3 +6,7 @@ The Corva API is a powerful interface providing great flexibility and extensibil
 
 This repository contains a repo version of our documentation in MarkDown (MD)
 
+## Built on API Blueprint
+API Blueprint: A powerful high-level API description language for web APIs.
+https://apiblueprint.org/
+
