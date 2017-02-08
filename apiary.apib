@@ -35,19 +35,22 @@ The app storage API is the mechanism for storing and retrieving app settings, re
 
 ## App Storage Records [/app_storage/{app}/{collection}]
 
-+ Parameters
-    + app: my_app (required, string) - App key
-    + collection: data (required, string) - Storage collection
-    
+
 ### Create a New App Storage Record [POST]
 
 Creates an app storage record. Authentication required. Records will be scoped
 to the company automatically. Timestamps will be added to records automatically.
 
-+ data (JSON) - The record contents
-+ timestamp (integer) - Unix timestamp for the record. May be omitted and defaults to current time.
-+ asset_id (integer) - ID of the asset the record is related to. May be omitted. 
-+ version (number) - The record schema version, defaults to 1
++ Parameters
+    + app: my_app (required, string) - App key
+    + collection: data (required, string) - Storage collection
+    
+
++ Attributes
+    + data (string) - The record contentst
+    + timestamp (number) - Unix timestamp for the record. May be omitted and defaults to current time.
+    + asset_id (number) - ID of the asset the record is related to. May be omitted. 
+    + version (number) - The record schema version, defaults to 1
 
 + Request (application/json)
 
@@ -89,8 +92,13 @@ to the company automatically. Timestamps will be added to records automatically.
 
 Fetches one or more records from app storage.
 
-+ asset_id (integer) - ID of the asset. If omitted, query will be made to all assets.
-+ query (string) - The serialized database query. If omitted, defaults to "the record with the newest timestamp".
++ Parameters
+    + app: my_app (required, string) - App key
+    + collection: data (required, string) - Storage collection
+
++ Attributes
+    + asset_id (number) - ID of the asset. If omitted, query will be made to all assets.
+    + query (string) - The serialized database query. If omitted, defaults to "the record with the newest timestamp".
 
 
 + Response 201 (application/json)
@@ -128,7 +136,13 @@ Retrieves a collection of asset records. The `types` parameter is optional,
 and will filter the results. Authentication required.
 
 + Parameters
-    + types (array) - possible values are `rig`, `well`, and `program`
+    + types (optional, array) - The types of results to return
+        + Members
+            + `all`
+            + `rig`
+            + `well`
+            + `program`
+        + Default: all
 
 + Response 200 (application/json)
 
