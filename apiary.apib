@@ -26,15 +26,18 @@ Apps must use the app token received in the dev-center.
 Corva uses JSON Web Tokens in order to handle user authentication.
 https://jwt.io/
 
+
+
+
 # Group App Storage
 
 The app storage API is the mechanism for storing and retrieving app settings, results, and values.
 
-## App Storage Records [/app_storage/{app_key}/{collection}]
+## App Storage Records [/app_storage/{app}/{collection}]
 
 + Parameters
-    + app_key (string) - App key
-    + collection (string) - Storage collection
+    + app: my_app (required, string) - App key
+    + collection: data (required, string) - Storage collection
     
 ### Create a New App Storage Record [POST]
 
@@ -117,7 +120,7 @@ Fetches one or more records from app storage.
 
 Assets are the pieces of equipment in the field. They can be programs, wells, or individual rigs.
 
-## Asset Collection [/assets]
+## Asset Collection [/assets{?types}]
 
 ### List All Assets [GET]
 
@@ -239,19 +242,35 @@ Creates an asset record. Authentication required.
                     "status": "active",
                     "created_at": "2017-01-01T00:00:00"
                 }                
+          
             
+
+
 ### Delete [DELETE]
-
-+ Response 204 (application/json)
-                {
-                
-                }
-
+            
++ Response 204
 
 
 ## Notifications [/notifications]
 
 
+### Create a Notification [POST]
+
+Creates and returns a notification event.
+
++ Request (application/json)
+
+                {
+                    
+                }
+
++ Response 201 (application/json)
+
+    + Body
+
+                {
+                    
+                }
 
 
 ## Communication [/layer_identities]
