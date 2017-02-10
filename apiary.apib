@@ -26,15 +26,16 @@ Apps must use the app token received in the dev-center.
 Corva uses JSON Web Tokens in order to handle user authentication.
 https://jwt.io/
 
-## Auth Tokens [/user_token]
+## Auth Tokens [/user_token{?auth}]
 
 ### Create an Auth Token [POST]
 
 Creates a JWT you can use for authenticating future requests.
 
 + Parameters
-    + email: (required, string)
-    + password: (required, string)
+    + auth: (required, hash) - authentication credentials
+        + email: (required, string) - user email
+        + password: (required, string) - user password
     
 + Request (application/json)
 
@@ -156,7 +157,7 @@ Fetches one or more records from app storage.
 
 Assets are the pieces of equipment in the field. They can be programs, wells, or individual rigs.
 
-## Asset Collection [/assets{?types}]
+## Asset Collection [/assets{?types}{?search}]
 
 ### List All Assets [GET]
 
@@ -164,13 +165,14 @@ Retrieves a collection of asset records. The `types` parameter is optional,
 and will filter the results. Authentication required.
 
 + Parameters
-    + types (optional, array) - The types of results to return
+    + types (optional, array) - types of results to return
         + Members
             + `all`
             + `rig`
             + `well`
             + `program`
         + Default: all
+    + search (optional, string) - search term for asset name
 
 + Response 200 (application/json)
 
