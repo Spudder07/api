@@ -33,15 +33,17 @@ https://jwt.io/
 Creates a JWT you can use for authenticating future requests.
 
 + Parameters
-    + auth: (required, hash) - authentication credentials
-        + email: (required, string) - user email
-        + password: (required, string) - user password
+    + auth: { "email": "mike@corva.ai", "password": "password"  } (required, hash) - authentication credentials
+    
++ Attributes
+    + email: mike@corva.ai (required, string) - User email
+    + password: password (required, string) - User password
     
 + Request (application/json)
 
             {
                 "auth": {
-                    "email": "admin@corva.ai",
+                    "email": "mike@corva.ai",
                     "password": "password"
                 }
             }
