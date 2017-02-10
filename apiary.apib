@@ -34,8 +34,8 @@ Creates a JWT you can use for authenticating future requests.
 
 + Parameters
     + auth: (required, hash) - authentication credentials
-        + email: (required, string) - user email
-        + password: (required, string) - user password
+    + email: (required, string) - user email
+    + password: (required, string) - user password
     
 + Request (application/json)
 
@@ -58,11 +58,13 @@ Creates a JWT you can use for authenticating future requests.
 
 
 
-# Group App Storage
+# Group Apps
+
+Endpoints for controlling and using apps to store and produce records, and read data.
+
+## Storage Records [/app_storage/{app}/{collection}]
 
 The app storage API is the mechanism for storing and retrieving app settings, results, and values.
-
-## App Storage Records [/app_storage/{app}/{collection}]
 
 
 ### Create a New App Storage Record [POST]
