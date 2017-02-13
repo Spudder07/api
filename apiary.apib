@@ -110,6 +110,7 @@ to the company automatically. Timestamps will be added to records automatically.
             {
                 "app: "corva.torque_and_drag.friction_factor",
                 "collection": "user_overrides",
+                "id": "1234-5678-9012-3456",
                 "timestamp": 1482117436,
                 "asset_id": 123,
                 "version": 1,
@@ -145,6 +146,7 @@ Fetches one or more records from app storage.
             {
                 "app: "corva.torque_and_drag.friction_factor",
                 "collection": "user_overrides",
+                "id": "1234-5678-9012-3456",
                 "timestamp": 1482117436,
                 "asset_id": 123,
                 "version": 1,
@@ -155,6 +157,63 @@ Fetches one or more records from app storage.
                     "open_hole_pickup_friction_factor": 0.25
                 }
             }
+
+## Storage Record [/app_storage/{app}/{collection}/{id}]
+
+### Update an App Storage Record [PUT]
+
+Updates an existing storage record. Authentication required. Records will be scoped
+to the company automatically. Timestamps will be added to records automatically.
+
++ Parameters
+    + app: my_app (required, string) - App key
+    + collection: data (required, string) - Storage collection
+    + id: 1234 (required, string) - The identifier of the record to be updated
+    
+
++ Attributes
+    + data (string) - The record content
+    + timestamp (number) - Unix timestamp for the record. May be omitted and defaults to current time.
+    + asset_id (number) - ID of the asset the record is related to. May be omitted. 
+    + version (number) - The record schema version, defaults to 1
+
++ Request (application/json)
+
+            {
+                "data": {
+                    "measured_depth": 5535,
+                    "casing_friction_factor": 0.15,
+                    "open_hole_slackoff_friction_factor": 0.20,
+                    "open_hole_pickup_friction_factor": 0.25
+                },
+                "timestamp": 1482117436,
+                "asset_id": 123,
+                "version": 1
+            }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /app_storage/corva.torque_and_drag.friction_factor/user_overrides
+
+    + Body
+
+            {
+                "app: "corva.torque_and_drag.friction_factor",
+                "collection": "user_overrides",
+                "id": "1234-5678-9012-3456",
+                "timestamp": 1482117436,
+                "asset_id": 123,
+                "version": 1,
+                "data": {
+                    "measured_depth": 5535,
+                    "casing_friction_factor": 0.15,
+                    "open_hole_slackoff_friction_factor": 0.20,
+                    "open_hole_pickup_friction_factor": 0.25
+                }
+            }
+            
 
 
 # Group Assets
