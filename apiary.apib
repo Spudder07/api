@@ -133,7 +133,7 @@ Fetches one or more records from app storage.
 + Attributes
     + asset_id (number) - ID of the asset. If omitted, query will be made to all assets.
     + query (string) - The serialized database query. If omitted, defaults to "the record with the newest timestamp".
-
+    + limit (number) - How many results to get. *Defaults to 1*. Use 0 to get all matching records.
 
 + Response 201 (application/json)
 
