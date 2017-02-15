@@ -158,9 +158,7 @@ Fetches one or more records from app storage.
                 }
             }
 
-## Storage Record [/app_storage/{app}/{collection}/{id}]
-
-### Update an App Storage Record [PUT]
+### Update an App Storage Record [PUT /{app}/{collection}/{id}]
 
 Updates an existing storage record. Authentication required. Records will be scoped
 to the company automatically. Timestamps will be added to records automatically.
@@ -168,7 +166,7 @@ to the company automatically. Timestamps will be added to records automatically.
 + Parameters
     + app: my_app (required, string) - App key
     + collection: data (required, string) - Storage collection
-    + id: 1234 (required, string) - The identifier of the record to be updated
+    + id: 1001 (required, number) - The identifier of the record to be updated
     
 
 + Attributes
