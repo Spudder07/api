@@ -355,30 +355,45 @@ Creates an asset record. Authentication required.
             
 + Response 204
 
-
 # Group Notifications
 
 Notification and event methods.
 
 ## Notifications [/notifications]
 
-
 ### Create a Notification [POST]
 
-Creates and returns a notification event.
+Creates a notification record.
+
++ user_id (integer) - ID of the user for whom the notification is intended
++ asset_id (integer) - ID of the asset the notification relates to
++ message (string) - the notification text
 
 + Request (application/json)
 
-                {
-                    
+            {
+                "notification": {
+                    "user_id": 2938,
+                    "asset_id": 98898,
+                    "message": "Well has gone offline"
                 }
+            }
 
 + Response 201 (application/json)
+
+    + Headers
+
+            Location: /notifications/1
 
     + Body
 
                 {
-                    
+                    "id": 2,
+                    "user_id": 2938,
+                    "asset_id": 98808
+                    "message": "Well has gone offline",
+                    "acknowledged": false,
+                    "created_at": "2017-01-01T00:00:00"
                 }
 
 # Group Communication
