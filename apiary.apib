@@ -395,6 +395,47 @@ Creates a notification record.
                     "acknowledged": false,
                     "created_at": "2017-01-01T00:00:00"
                 }
+                
+# Group Preferences
+
+User preferences
+
+## Preference [/preferences]
+
+### View a Users preferences [GET]
+
++ Response 200 (application/json)
+
+                {
+                    "push_notifications_enabled": false,
+                    "messaging_notifications_enabled": true,
+                    "alert_levels": ["information", "warning", "error"]
+                }
+                
+### Update an User Preference [PUT]
+
++ push_notifications_enabled (boolean) - push notifications on/off
++ messaging_notifications_enabled (boolean) - message notifications on/off
++ alert_levels (array) - types of notifications the user wants to receive [information|warning|error]
+
+
++ Request (application/json)
+
+            {
+                "preference": {
+                    "messaging_notifications_enabled": true,
+                    "alert_levels": ["information", "warning"]
+                }
+            }
+
++ Response 200 (application/json)
+
+                {
+                    "push_notifications_enabled": false,
+                    "messaging_notifications_enabled": true,
+                    "alert_levels": ["information", "warning"]
+                }               
+          
 
 # Group Communication
 
