@@ -26,18 +26,15 @@ Apps must use the app token received in the dev-center.
 Corva uses JSON Web Tokens in order to handle user authentication.
 https://jwt.io/
 
-## Auth Tokens [/user_token{?auth}]
+## Auth Tokens [/user_token]
 
 ### Create an Auth Token [POST]
 
 Creates a JWT you can use for authenticating future requests.
 
-+ Parameters
-    + auth: { "email": "mike@corva.ai", "password": "password"  } (required, hash) - authentication credentials
-    
 + Attributes
-    + email: mike@corva.ai (required, string) - User email
-    + password: password (required, string) - User password
+    + auth[email]: mike@corva.ai (required, string) - User email
+    + auth[password]: password (required, string) - User password
     
 + Request (application/json)
 
