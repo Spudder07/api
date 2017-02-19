@@ -211,6 +211,28 @@ to the company automatically. Timestamps will be added to records automatically.
             
 
 
+# Group Redis
+
+Apps can save their state in Redis. Redis access is provided with two simple API methods.
+
+## Redis Keys [/redis/{key}]
+
+### Set Value [POST]
+
+Saves the request body value into Redis database.
+
++ Body
+    + String
+    
++ Response 201
+
+### Get Value [GET]
+
+Receives the stored value from Redis database.
+
++ Response 200 (text/plain)
+
+
 # Group Assets
 
 Assets are the pieces of equipment in the field. They can be programs, wells, or individual rigs.
