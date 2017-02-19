@@ -211,27 +211,32 @@ to the company automatically. Timestamps will be added to records automatically.
             
 
 
-# Group Redis
+## Cache [/cache/{key}]
 
-Apps can save their state in Redis. Redis access is provided with two simple API methods.
-
-## Redis Keys [/redis/{key}]
+Apps can save data in fast-access cache database. This is a key-value storage system. This type of scenario is good for aggregate or continuous functions.
 
 ### Set Value [POST]
 
 Saves the request body value into Redis database.
 
-+ Body
-    + String
++ Parameters
+    + key: counter (required, string) - The cache key
+
++ Request (text)
+
+    + Body
+        34534645
     
 + Response 201
 
 ### Get Value [GET]
 
-Receives the stored value from Redis database.
+Receives the stored value from fast-access cache database.
 
 + Response 200 (text/plain)
 
+    + Body
+        34534645
 
 # Group Assets
 
