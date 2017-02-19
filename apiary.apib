@@ -390,9 +390,10 @@ Notification and event methods.
 
 Creates a notification record.
 
-+ user_id (integer) - ID of the user for whom the notification is intended
-+ asset_id (integer) - ID of the asset the notification relates to
-+ message (string) - the notification text
++ Attributes
+    + user_id:  (required, integer) - ID of the user for whom the notification is intended
+    + asset_id: 1234 (integer) - ID of the asset the notification relates to
+    + message:  (string) - the notification text
 
 + Request (application/json)
 
@@ -426,7 +427,7 @@ Creates a notification record.
 + Parameters
     + notification_id (integer) - ID of the Notification
     
-### View an Asset Detail [GET]
+### View a Notification [GET]
 
 + Response 200 (application/json)
 
@@ -441,9 +442,10 @@ Creates a notification record.
                     
 ### Update a Notification [PATCH]
 
-+ user_id (integer) - ID of the user for whom the notification is intended
-+ asset_id (integer) - ID of the asset the notification relates to
-+ message (string) - the notification text
++ Attributes
+    + user_id (integer) - ID of the user for whom the notification is intended
+    + asset_id (integer) - ID of the asset the notification relates to
+    + message (string) - the notification text
 
 + Request (application/json)
 
