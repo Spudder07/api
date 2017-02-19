@@ -286,21 +286,21 @@ Creates an asset record. Authentication required.
 
 + Attributes 
     + name: Well ABX 2 (required, string) - The asset name
-    + type: well (required, enum[string]) - The type of the asset. 
+    + type: well (required, enum[string]) - The type of the asset 
         + Members
             + all
             + rig
             + well
             + program
-    + status: active  (enum[string]) - The asset status.
+    + status: active  (enum[string]) - The asset status
         + Members
             + unknown
             + idle
             + active
             + paused
             + complete
-    + parent_asset_id: 34 (number) - ID of the assets parent 
-    + last_active_at (number) - datetime that the asset was last active
+    + parent_asset_id: 34 (number) - ID of the assets parent
+    + last_active_at (number) - The datetime that the asset was last active
 
 + Request (application/json)
 
@@ -357,11 +357,22 @@ Creates an asset record. Authentication required.
 ### Update an Asset [PUT]
 
 + Attributes 
-    + name (string) - The asset name
-    + type (string) - The type of rig. [rig|well|program]
-    + status (string) - asset status [unknown|idle|active|paused|complete]
-    + parent_asset_id (number) - ID of the assets parent 
-    + last_active_at (number) - datetime that the asset was last active
+    + name: Well ABX 2 (required, string) - The asset name
+    + type: well (required, enum[string]) - The type of the asset 
+        + Members
+            + all
+            + rig
+            + well
+            + program
+    + status: active  (enum[string]) - The asset status
+        + Members
+            + unknown
+            + idle
+            + active
+            + paused
+            + complete
+    + parent_asset_id: 34 (number) - ID of the assets parent
+    + last_active_at (number) - The datetime that the asset was last active
 
 
 + Request (application/json)
