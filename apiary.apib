@@ -30,7 +30,7 @@ https://jwt.io/
 
 ### Create an Auth Token [POST]
 
-Creates a JWT you can use for authenticating future requests.
+Creates an Auth Token you can use for authenticating future requests.
 
 + Attributes
     + auth[email]: mike@corva.ai (required, string) - User email
@@ -50,7 +50,7 @@ Creates a JWT you can use for authenticating future requests.
     + Body
 
             {
-                "jwt: "42kjsd9f0o4jlds9f02kljsdfo9j2lk",
+                "auth_key: "42kjsd9f0o4jlds9f02kljsdfo9j2lk",
                 "messaging_key": "l2k4j2lk490dflj4k209sd8flkj2l2k4j"
             }
 
@@ -225,7 +225,8 @@ Saves the request body value into Redis database.
 + Request (text)
 
     + Body
-        34534645
+    
+            34534645
     
 + Response 201
 
@@ -236,7 +237,8 @@ Receives the stored value from fast-access cache database.
 + Response 200 (text/plain)
 
     + Body
-        34534645
+        
+            34534645
 
 # Group Assets
 
@@ -282,19 +284,26 @@ and will filter the results. Authentication required.
 
 Creates an asset record. Authentication required.
 
-+ name (string) - The asset name
-+ type (string) - The type of rig. [rig|well|program]
-+ status (string) - asset status [unknown|idle|active|paused|complete]
-+ stats (JSON) - stats
-+ parent_asset_id (integer) - ID of the assets parent 
-+ last_active_at (datetime) - datetime that the asset was last active
++ Attributes 
+    + name: Well ABX 2 (required, string) - The asset name
+    + type: well (required, enum[string]) - The type of the asset. 
+        + Members
+            + all
+            + rig
+            + well
+            + program
+    + status: active  (string) - asset status [unknown|idle|active|paused|complete]
+    + parent_asset_id: 34 (number) - ID of the assets parent 
+    + last_active_at (number) - datetime that the asset was last active
 
 + Request (application/json)
 
             {
                 "asset": {
-                    "name": "Rig 1",
-                    "type": "rig"
+                    "name": "Well ABX 2",
+                    "type": "well",
+                    "status": "active",
+                    "parent_asset_id": 34
                 }
             }
 
@@ -341,12 +350,12 @@ Creates an asset record. Authentication required.
                 
 ### Update an Asset [PUT]
 
-+ name (string) - The asset name
-+ type (string) - The type of rig. [rig|well|program]
-+ status (string) - asset status [unknown|idle|active|paused|complete]
-+ stats (JSON) - stats
-+ parent_asset_id (integer) - ID of the assets parent 
-+ last_active_at (datetime) - datetime that the asset was last active
++ Attributes 
+    + name (string) - The asset name
+    + type (string) - The type of rig. [rig|well|program]
+    + status (string) - asset status [unknown|idle|active|paused|complete]
+    + parent_asset_id (number) - ID of the assets parent 
+    + last_active_at (number) - datetime that the asset was last active
 
 
 + Request (application/json)
@@ -390,10 +399,10 @@ Notification and event methods.
 
 Creates a notification record.
 
-+ Attributes
-    + user_id:  (required, integer) - ID of the user for whom the notification is intended
-    + asset_id: 1234 (integer) - ID of the asset the notification relates to
-    + message:  (string) - the notification text
++ Attributes 
+    + user_id (number) - ID of the user for whom the notification is intended
+    + asset_id (number) - ID of the asset the notification relates to
+    + message (string) - the notification text
 
 + Request (application/json)
 
@@ -427,7 +436,7 @@ Creates a notification record.
 + Parameters
     + notification_id (integer) - ID of the Notification
     
-### View a Notification [GET]
+### View an Notifcation [GET]
 
 + Response 200 (application/json)
 
@@ -442,14 +451,17 @@ Creates a notification record.
                     
 ### Update a Notification [PATCH]
 
-+ Attributes
-    + user_id (integer) - ID of the user for whom the notification is intended
-    + asset_id (integer) - ID of the asset the notification relates to
-    + message (string) - the notification text
-
 + Request (application/json)
 
-           {
+    + Attributes
+        + user_id (number) - ID of the user for whom the notification is intended
+        + asset_id (number) - ID of the asset the notification relates to
+        + message (string) - The notification text
+
+
+    + Body
+    
+            {
                 "notification": {
                     "user_id": 2938,
                     "asset_id": 98898,
