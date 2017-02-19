@@ -292,7 +292,13 @@ Creates an asset record. Authentication required.
             + rig
             + well
             + program
-    + status: active  (string) - asset status [unknown|idle|active|paused|complete]
+    + status: active  (enum[string]) - The asset status.
+        + Members
+            + unknown
+            + idle
+            + active
+            + paused
+            + complete
     + parent_asset_id: 34 (number) - ID of the assets parent 
     + last_active_at (number) - datetime that the asset was last active
 
