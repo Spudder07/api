@@ -209,6 +209,17 @@ to the company automatically. Timestamps will be added to records automatically.
                 }
             }
             
+### Delete an App Storage Record [DELETE /{app}/{collection}/{_id}]
+
+Deletes an existing storage record. Authentication required. Records will be scoped
+to the company automatically.
+
++ Parameters
+    + app: my_app (required, string) - App key
+    + collection: data (required, string) - Storage collection
+    + _id: "1234-5678-9012-3456" (required, string) - The identifier of the record to be updated
+    
+            
 
 
 ## Cache [/cache/{key}]
