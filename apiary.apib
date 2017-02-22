@@ -12,6 +12,20 @@ Data apps come in many flavors and are meant to process data either in real-time
 * Stream-based - Continuous incoming data stream processing
 * Event-based - Infrequent or time-based processing
 
+## Subscriptions
+
+Apps can hook into create, update and destroy events occuring in App Storage API. 
+
+TODO: describe how to subscribe into corva-subscriptions app and start receiving messages.
+
+Channel keys are composed as following:
+
+Create events: {app}/{collection}/{asset_id}
+
+Update events: {app}/{collection}/{asset_id}/update
+
+Destroy events: {app}/{collection}/{asset_id}/destroy
+
 ### Data App Settings
 All data apps have global settings definitions, instance settings definitions, or can define custom UI for settings.
 
