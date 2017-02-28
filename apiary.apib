@@ -237,6 +237,95 @@ to the company automatically.
 + Response 204
 
 
+
+
+## App Tasks [/tasks/{app}/{collection}?asset_id={asset_id}]
+
+The app tasks API is the mechanism for executing task applications.
+
+
+### Execute a Task [POST]
+
+Schedules a task to be asynchronously executed.
+Body may contain a document file upload. 
+Authentication required. 
+
++ Parameters
+    + app: my_app (required, string) - Task app key
+    + collection: data (required, string) - Task data collection
+    + asset_id (number) - The asset 
+
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /tasks/corva.tasks/survey_parser?asset_id=1234
+
+    + Body
+
+            {
+              "id": "1234-5678-9012-3456"
+            }
+
+
+### Update an App Task with Results [PUT /{app}/{collection}/{id}]
+
+Updates an existing task with processed results. Authentication required. Timestamps will be added to records automatically.
+
++ Parameters
+    + app: my_app (required, string) - App key
+    + collection: data (required, string) - Task data collection
+    + id: "1234-5678-9012-3456" (required, string) - The identifier of the task to be updated
+    
+
++ Attributes
+    + data (string) - The record content
+    + timestamp (number) - Unix timestamp for the record. May be omitted and defaults to current time.
+    + asset_id (number) - ID of the asset the record is related to. May be omitted. 
+    + company_id (number) - ID of the company the task is associated with.
+    + version (number) - The record schema version, defaults to 1
+
++ Request (application/json)
+
+            {
+                "data": {
+                    "stations": [{
+                      "svy_inclination": 0,
+                      "svy_azimuth": 0,
+                      "svy_depth": 0
+                     }]
+                },
+                "timestamp": 1482117436,
+                "asset_id": 123,
+                "company_id": 456
+                "version": 1
+            }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /data/corva.torque_and_drag.friction_factor/user_overrides
+
+    + Body
+
+            {
+                "app: "corva.torque_and_drag.friction_factor",
+                "collection": "user_overrides",
+                "_id": "1234-5678-9012-3456",
+                "timestamp": 1482117436,
+                "asset_id": 123,
+                "version": 1,
+                "data": {
+                    "measured_depth": 5535,
+                    "casing_friction_factor": 0.15,
+                    "open_hole_slackoff_friction_factor": 0.20,
+                    "open_hole_pickup_friction_factor": 0.25
+                }
+            }
+
+
 ## Cache [/cache/{key}]
 
 Apps can save data in fast-access cache database. This is a key-value storage system. This type of scenario is good for aggregate or continuous functions.
