@@ -14,7 +14,7 @@ Data apps come in many flavors and are meant to process data either in real-time
 
 ## Subscriptions
 
-Apps can hook into create, update and destroy events occuring in App Storage API. 
+Apps can hook into create, update and destroy events occuring in App Data API. 
 
 TODO: describe how to subscribe into corva-subscriptions app and start receiving messages.
 
@@ -75,19 +75,19 @@ Creates an Auth Token you can use for authenticating future requests.
 
 Endpoints for controlling and using apps to store and produce records, and read data.
 
-## Storage Records [/app_storage/{app}/{collection}]
+## App Data [/data/{app}/{collection}]
 
-The app storage API is the mechanism for storing and retrieving app settings, results, and values.
+The app data API is the mechanism for storing and retrieving app settings, results, and values.
 
 
-### Create a New App Storage Record [POST]
+### Create a New App Data Record [POST]
 
-Creates an app storage record. Authentication required. Records will be scoped
+Creates an app data record. Authentication required. Records will be scoped
 to the company automatically. Timestamps will be added to records automatically.
 
 + Parameters
     + app: my_app (required, string) - App key
-    + collection: data (required, string) - Storage collection
+    + collection: data (required, string) - Data collection
     
 
 + Attributes
@@ -114,7 +114,7 @@ to the company automatically. Timestamps will be added to records automatically.
 
     + Headers
 
-            Location: /app_storage/corva.torque_and_drag.friction_factor/user_overrides
+            Location: /data/corva.torque_and_drag.friction_factor/user_overrides
 
     + Body
 
@@ -133,13 +133,13 @@ to the company automatically. Timestamps will be added to records automatically.
                 }
             }
             
-### Retrieve App Storage Records [GET]
+### Retrieve App Data Records [GET]
 
-Fetches one or more records from app storage.
+Fetches one or more records from app data.
 
 + Parameters
     + app: my_app (required, string) - App key
-    + collection: data (required, string) - Storage collection
+    + collection: data (required, string) - Data collection
 
 + Attributes
     + asset_id (number) - ID of the asset. If omitted, query will be made to all assets.
@@ -150,7 +150,7 @@ Fetches one or more records from app storage.
 
     + Headers
 
-            Location: /app_storage/corva.torque_and_drag.friction_factor/user_overrides
+            Location: /data/corva.torque_and_drag.friction_factor/user_overrides
 
     + Body
 
@@ -169,14 +169,14 @@ Fetches one or more records from app storage.
                 }
             }
 
-### Update an App Storage Record [PUT /{app}/{collection}/{_id}]
+### Update an App Data Record [PUT /{app}/{collection}/{_id}]
 
-Updates an existing storage record. Authentication required. Records will be scoped
+Updates an existing data record. Authentication required. Records will be scoped
 to the company automatically. Timestamps will be added to records automatically.
 
 + Parameters
     + app: my_app (required, string) - App key
-    + collection: data (required, string) - Storage collection
+    + collection: data (required, string) - Data collection
     + _id: "1234-5678-9012-3456" (required, string) - The identifier of the record to be updated
     
 
@@ -204,7 +204,7 @@ to the company automatically. Timestamps will be added to records automatically.
 
     + Headers
 
-            Location: /app_storage/corva.torque_and_drag.friction_factor/user_overrides
+            Location: /data/corva.torque_and_drag.friction_factor/user_overrides
 
     + Body
 
@@ -223,14 +223,14 @@ to the company automatically. Timestamps will be added to records automatically.
                 }
             }
             
-### Delete an App Storage Record [DELETE /{app}/{collection}/{_id}]
+### Delete an App Data Record [DELETE /{app}/{collection}/{_id}]
 
-Deletes an existing storage record. Authentication required. Records will be scoped
+Deletes an existing data record. Authentication required. Records will be scoped
 to the company automatically.
 
 + Parameters
     + app: my_app (required, string) - App key
-    + collection: data (required, string) - Storage collection
+    + collection: data (required, string) - Data collection
     + _id: "1234-5678-9012-3456" (required, string) - The identifier of the record to be updated
     
     
