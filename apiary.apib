@@ -611,7 +611,27 @@ Creates a notification record.
                     "acknowledged": false,
                     "created_at": "2017-01-01T00:00:00"
                 }
-                            
+
+# Group Users
+
+## User [/users/current]
+
+### Retrieve the current user [GET]
+
++ Response 200 (application/json)
+
+                {
+                    "id": 8429,
+                    "company_id": 1122,
+                    "first_name": "John",
+                    "last_name": "Smith",
+                    "email": "john@example.com",
+                    "created_at": "2017-01-01T00:00:00",
+                    "reset_password_token": "4j2kd94jks93kl2a",
+                    "recently_viewed_asset_ids": [1,2,3]
+                }
+                
+                         
 # Group Preferences
 
 User preferences
@@ -657,11 +677,11 @@ User preferences
 
 Communication, chat, and annotation methods.
 
-## Communication [/layer_identities]
+## Communication [/messaging_keys]
 
-### Create a New Layer Identity Token [POST]
+### Create a New Messaging Key [POST]
 
-Creates and returns a layer identity token.
+Creates and returns a messaging key token.
 
 + nonce (string) - The nonce token provided by the layer client
 
@@ -676,5 +696,5 @@ Creates and returns a layer identity token.
     + Body
 
                 {
-                    "layer_identity": "2l3k4j3lkjs098sd0k4j2ljs0d9f2l34j0ds9jl234j0jofj23..."
+                    "messaging_key": "2l3k4j3lkjs098sd0k4j2ljs0d9f2l34j0ds9jl234j0jofj23..."
                 }
