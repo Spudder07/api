@@ -75,7 +75,7 @@ Creates an Auth Token you can use for authenticating future requests.
 
 Endpoints for controlling and using apps to store and produce records, and read data.
 
-## App Data [/data/{app}/{collection}]
+## App Data [/data/{provider}/{collection}]
 
 The app data API is the mechanism for storing and retrieving app settings, results, and values.
 
@@ -86,7 +86,7 @@ Creates an app data record. Authentication required. Records will be scoped
 to the company automatically. Timestamps will be added to records automatically.
 
 + Parameters
-    + app: my_app (required, string) - App key
+    + provider: my_company (required, string) - Developer key
     + collection: data (required, string) - Data collection
     
 
@@ -114,13 +114,13 @@ to the company automatically. Timestamps will be added to records automatically.
 
     + Headers
 
-            Location: /data/corva.torque_and_drag.friction_factor/user_overrides
+            Location: /data/corva/torque-and-drag.friction-factor-user-overrides"
 
     + Body
 
             {
-                "app: "corva.torque_and_drag.friction_factor",
-                "collection": "user_overrides",
+                "provider: "corva",
+                "collection": "torque-and-drag.friction-factor-user-overrides",
                 "_id": "1234-5678-9012-3456",
                 "timestamp": 1482117436,
                 "asset_id": 123,
@@ -138,7 +138,7 @@ to the company automatically. Timestamps will be added to records automatically.
 Fetches one or more records from app data.
 
 + Parameters
-    + app: my_app (required, string) - App key
+    + provider: my_company (required, string) - Developer key
     + collection: data (required, string) - Data collection
 
 + Attributes
@@ -150,14 +150,14 @@ Fetches one or more records from app data.
 
     + Headers
 
-            Location: /data/corva.torque_and_drag.friction_factor/user_overrides
+            Location: /data/torque-and-drag.friction-factor-user-overrides
 
     + Body
 
             {
                 "_id": "1234-5678-9012-3456",
-                "app: "corva.torque_and_drag.friction_factor",
-                "collection": "user_overrides",
+                "provider: "corva",
+                "collection": "torque-and-drag.friction-factor-user-overrides",
                 "timestamp": 1482117436,
                 "asset_id": 123,
                 "version": 1,
@@ -169,13 +169,13 @@ Fetches one or more records from app data.
                 }
             }
 
-### Update an App Data Record [PUT /{app}/{collection}/{_id}]
+### Update an App Data Record [PUT /{provider}/{collection}/{_id}]
 
 Updates an existing data record. Authentication required. Records will be scoped
 to the company automatically. Timestamps will be added to records automatically.
 
 + Parameters
-    + app: my_app (required, string) - App key
+    + provider: my_company (required, string) - Developer key
     + collection: data (required, string) - Data collection
     + _id: "1234-5678-9012-3456" (required, string) - The identifier of the record to be updated
     
@@ -204,13 +204,13 @@ to the company automatically. Timestamps will be added to records automatically.
 
     + Headers
 
-            Location: /data/corva.torque_and_drag.friction_factor/user_overrides
+            Location: /data/corva/
 
     + Body
 
             {
-                "app: "corva.torque_and_drag.friction_factor",
-                "collection": "user_overrides",
+                "dev_key: "corva",
+                "collection": "torque-and-drag.friction-factor-user-overrides",
                 "_id": "1234-5678-9012-3456",
                 "timestamp": 1482117436,
                 "asset_id": 123,
@@ -223,13 +223,13 @@ to the company automatically. Timestamps will be added to records automatically.
                 }
             }
             
-### Delete an App Data Record [DELETE /{app}/{collection}/{_id}]
+### Delete an App Data Record [DELETE /{provider}/{collection}/{_id}]
 
 Deletes an existing data record. Authentication required. Records will be scoped
 to the company automatically.
 
 + Parameters
-    + app: my_app (required, string) - App key
+    + provider: my_company (required, string) - Developer key
     + collection: data (required, string) - Data collection
     + _id: "1234-5678-9012-3456" (required, string) - The identifier of the record to be updated
     
