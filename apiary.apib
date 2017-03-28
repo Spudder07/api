@@ -20,11 +20,11 @@ TODO: describe how to subscribe into corva-subscriptions app and start receiving
 
 Channel keys are composed as following:
 
-Create events: {app}/{collection}/{asset_id}
+Create events: {provider}/{collection}/{asset_id}
 
-Update events: {app}/{collection}/{asset_id}/update
+Update events: {provider}/{collection}/{asset_id}/update
 
-Destroy events: {app}/{collection}/{asset_id}/destroy
+Destroy events: {provider}/{collection}/{asset_id}/destroy
 
 ### Data App Settings
 All data apps have global settings definitions, instance settings definitions, or can define custom UI for settings.
@@ -239,7 +239,7 @@ to the company automatically.
 
 
 
-## App Tasks [/tasks/{app}/{collection}?asset_id={asset_id}]
+## App Tasks [/tasks/{provider}/{collection}?asset_id={asset_id}]
 
 The app tasks API is the mechanism for executing task applications.
 
@@ -251,7 +251,7 @@ Body may contain a document file upload.
 Authentication required. 
 
 + Parameters
-    + app: my_app (required, string) - Task app key
+    + provider: my_company (required, string) - Task provider key
     + collection: data (required, string) - Task data collection
     + asset_id (number) - The asset 
 
@@ -269,12 +269,12 @@ Authentication required.
             }
 
 
-### Update an App Task with Results [PUT /{app}/{collection}/{id}]
+### Update an App Task with Results [PUT /{provider}/{collection}/{id}]
 
 Updates an existing task with processed results. Authentication required. Timestamps will be added to records automatically.
 
 + Parameters
-    + app: my_app (required, string) - App key
+    + provider: my_company (required, string) - Provider key
     + collection: data (required, string) - Task data collection
     + id: "1234-5678-9012-3456" (required, string) - The identifier of the task to be updated
     
@@ -311,8 +311,8 @@ Updates an existing task with processed results. Authentication required. Timest
     + Body
 
             {
-                "app: "corva.torque_and_drag.friction_factor",
-                "collection": "user_overrides",
+                "provider: "corva",
+                "collection": "torque-and-drag.friction-factor-user-overrides",
                 "_id": "1234-5678-9012-3456",
                 "timestamp": 1482117436,
                 "asset_id": 123,
