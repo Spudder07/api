@@ -135,7 +135,7 @@ to the company automatically. Timestamps will be added to records automatically.
             
 ### Retrieve App Data Records [GET]
 
-Fetches one or more records from app data.
+Fetches one or more records from app data. By default, it returns "the records with the newest timestamp"
 
 + Parameters
     + provider: my_company (required, string) - Provider key
@@ -143,7 +143,16 @@ Fetches one or more records from app data.
 
 + Attributes
     + asset_id (number) - ID of the asset. If omitted, query will be made to all assets.
-    + query (string) - The serialized database query. If omitted, defaults to "the record with the newest timestamp".
+    + query (string) - The serialized database query with following syntax: 
+    `{<field>#<operator>#<value>}AND{<field>#<operator>#<value>}...`
+        + operators: 
+            + `gt`, `gte`, `lt`, `lte`, `eq`, `ne`
+        + value types:
+            + string: should be enclosed in single quote(`'`)
+            + number: without quote
+    + where (string) - The database query containing Javascript expression. 
+    *Example: {this.credits == this.debits || this.credits > this.debits}*
+    + fields (string) - Database fields list seperated by comma(`,`) to return only limited fields as a result. 
     + limit (number) - How many results to get. *Defaults to 1*. Use 0 to get all matching records.
 
 + Response 201 (application/json)
