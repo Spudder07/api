@@ -154,6 +154,7 @@ Fetches one or more records from app data. By default, it returns "the records w
     *Example: {this.credits == this.debits || this.credits > this.debits}*
     + fields (string) - Database fields list seperated by comma(`,`) to return only limited fields as a result. 
     + limit (number) - How many results to get. *Defaults to 1*. Use 0 to get all matching records.
+    + sort (string) - Sorting order or returned results. *Defaults to '{timestamp:-1}'*. Use '{<field>:<value>}' where value is 1 or -1.
 
 + Response 201 (application/json)
 
