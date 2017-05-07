@@ -380,12 +380,13 @@ Saves the request body value into Redis database.
 + Request (application/json)
 
     + Body
-        {
-            "verions": 1,
-            "data": {
-                ...
+    
+            {
+                "verions": 1,
+                "data": {
+                    ...
+                }
             }
-        }
     
 + Response 200
 
@@ -716,13 +717,13 @@ Block storage for files.
 
 ## Files Collection [/file]
 
-### File Signing [GET /file/sign]
+### File Signing [GET /file/sign?file_name={file_name}&contentType={contentType}]
 
 Retrieve a signed URL used for uploading a files. Authentication required.
 
 + Parameters
-    + file_name my-file.pdf (required, string) - the file name
-    + contentType application/pdf (optional, string) - the file content type
+    + file_name: my-file.pdf (required, string) - the file name
+    + contentType: application/pdf (optional, string) - the file content type
 
 + Response 200 (application/json)
 
@@ -733,12 +734,12 @@ Retrieve a signed URL used for uploading a files. Authentication required.
         }
         
         
-### File Download [GET /file/download]
+### File Download [GET /file/download?file_name={file_name}]
 
 Download a file. Authentication required.
 
 + Parameters
-    + file_name company/1494128438/my-file.pdf (required, string) - the file name
+    + file_name: company/1494128438/my-file.pdf (required, string) - the file name
 
 + Response 301
         
