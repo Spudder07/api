@@ -642,6 +642,38 @@ Creates a notification record.
                 }
                 
                          
+                         
+# Group Streams
+
+Streams are the concept for real-time data pipelines. Stream apps run inside of streams, which control the flow of information and apps for real-time data.
+
+## Stream Collection [/app_streams{?search}]
+
+### List All Streams [GET]
+
+Retrieves a collection of streams records. Authentication required.
+
++ Parameters
+    + search (optional, string) - search term for stream name
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 2,
+                "asset_id": 20,
+                "configuration": "{}",
+                "created_at": "2017-05-03T15:35:55.709Z",
+                "updated_at": "2017-05-06T18:51:44.453Z",
+                "company_id": 2,
+                "status": "idle",
+                "name": "Rig ABC Stream"
+            },
+            {
+                ...
+            }
+        ]
+        
 # Group Preferences
 
 User preferences
