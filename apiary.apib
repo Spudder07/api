@@ -364,6 +364,31 @@ Receives the stored value from fast-access cache database.
     + Body
         
             34534645
+            
+            
+## Producer [/message_producer/{app_key}]
+
+Stream apps save results and trigger subsriptions using the message producer API.
+
+### Produce [POST]
+
+Saves the request body value into Redis database.
+
++ Parameters
+    + app_key: my-app (required, string) - The app key 
+
++ Request (application/json)
+
+    + Body
+        {
+            "verions": 1,
+            "data": {
+                ...
+            }
+        }
+    
++ Response 200
+
 
 # Group Assets
 
