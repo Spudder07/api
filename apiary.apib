@@ -9,22 +9,15 @@ The Corva API is a powerful interface providing great flexibility and extensibil
 Data apps come in many flavors and are meant to process data either in real-time or event-based and produce the results with no UI. Types of data apps:
 * Sources - Input data producers
 * Enrichment - Modify data in-place or enrich stream
-* Stream-based - Continuous incoming data stream processing
-* Event-based - Infrequent or time-based processing
+* Stream - Continuous incoming data stream processing
+* Schedule - Time-based schedule processing
 
 ## Subscriptions
 
-Apps can hook into create, update and destroy events occuring in App Data API. 
+Apps can hook into app data subscriptions occuring in the real-time stream using a socket or https connection to subscriptions.corva.ai
 
-TODO: describe how to subscribe into corva-subscriptions app and start receiving messages.
+When subscribing to one or more app subscriptions, you will be automatically notified of any changes on that app or new data results. Subscriptions make it seamless and easy to display real-time data and results of the app stream pipeline.
 
-Channel keys are composed as following:
-
-Create events: {provider}/{collection}/{asset_id}
-
-Update events: {provider}/{collection}/{asset_id}/update
-
-Destroy events: {provider}/{collection}/{asset_id}/destroy
 
 ### Data App Settings
 All data apps have global settings definitions, instance settings definitions, or can define custom UI for settings.
